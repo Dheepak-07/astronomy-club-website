@@ -1,21 +1,49 @@
+/* In your index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  background: black;
-  color: white;
+html, body, #root {
   margin: 0;
   padding: 0;
+  width: 100%;
+  /* REMOVE height: 100% from html/body */
+  /* It can prevent scrolling */
   overflow-x: hidden;
-  font-family: 'Inter', sans-serif;
-  scroll-behavior: smooth;
+  background: black;
 }
 
 canvas {
   position: fixed !important;
   top: 0;
   left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  display: block;
+}
+
+.full-page-section {
+  position: relative;
+  z-index: 10 !important;
+  color: white;
+
+  /* --- ADD THIS PART --- */
+  height: 100vh; /* This makes each section fill the screen */
+  
+  /* Optional: for centering the text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  /* --- END ADDED PART --- */
+}
+
+/* Optional: Add a class for your main content wrapper */
+.content-container {
+  position: relative;
+  z-index: 10;
   width: 100%;
-  height: 100%;
 }
